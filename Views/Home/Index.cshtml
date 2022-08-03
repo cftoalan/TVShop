@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+@{
+        if (ViewData["LoggedIn"]!="yes")
+        {
+            <h1 class="display-4">Welcome to TV Shop! </h1>
+            <p><a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Index">Click here for Login!</a></p>
+          
+        }else{
+            <h1 class="display-4">Welcome to TV Shop, @ViewData["CustomerName"]!</h1>
+        }
+    }
+</div>
+

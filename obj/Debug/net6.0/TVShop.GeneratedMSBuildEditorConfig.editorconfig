@@ -1,0 +1,108 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = TVShop
+build_property.RootNamespace = TVShop
+build_property.ProjectDir = C:\Users\Alan\Source\Repos\TVShop\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\Alan\Source\Repos\TVShop
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/Alan/Source/Repos/TVShop/Views/Customers/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Alan/Source/Repos/TVShop/Views/Customers/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Alan/Source/Repos/TVShop/Views/Customers/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Alan/Source/Repos/TVShop/Views/Customers/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Alan/Source/Repos/TVShop/Views/Customers/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Alan/Source/Repos/TVShop/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Alan/Source/Repos/TVShop/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Alan/Source/Repos/TVShop/Views/Login/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Alan/Source/Repos/TVShop/Views/Login/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Alan/Source/Repos/TVShop/Views/Login/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Alan/Source/Repos/TVShop/Views/Login/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Alan/Source/Repos/TVShop/Views/Login/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Alan/Source/Repos/TVShop/Views/Logout/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9nb3V0XENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Alan/Source/Repos/TVShop/Views/Logout/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9nb3V0XERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Alan/Source/Repos/TVShop/Views/Logout/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9nb3V0XERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Alan/Source/Repos/TVShop/Views/Logout/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9nb3V0XEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Alan/Source/Repos/TVShop/Views/Logout/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9nb3V0XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Alan/Source/Repos/TVShop/Views/Register/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVnaXN0ZXJcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Alan/Source/Repos/TVShop/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Alan/Source/Repos/TVShop/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Alan/Source/Repos/TVShop/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Alan/Source/Repos/TVShop/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Alan/Source/Repos/TVShop/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-ns6bu5vzwy
