@@ -50,7 +50,8 @@ namespace TVShop.DataAccess
 
             modelBuilder.Entity<Invoice>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(e => new { e.CustomerId, e.ProductId })
+                    .HasName("PK__Invoice__6FEEA8B44AC03E52");
 
                 entity.ToTable("Invoice");
 
@@ -61,14 +62,16 @@ namespace TVShop.DataAccess
                 entity.Property(e => e.Date).HasColumnType("date");
 
                 entity.HasOne(d => d.Customer)
-                    .WithMany()
+                    .WithMany(p => p.Invoices)
                     .HasForeignKey(d => d.CustomerId)
-                    .HasConstraintName("FK__Invoice__Custome__4AB81AF0");
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__Invoice__Custome__5CD6CB2B");
 
                 entity.HasOne(d => d.Product)
-                    .WithMany()
+                    .WithMany(p => p.Invoices)
                     .HasForeignKey(d => d.ProductId)
-                    .HasConstraintName("FK__Invoice__Product__4BAC3F29");
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__Invoice__Product__5DCAEF64");
             });
 
             modelBuilder.Entity<Manufacturer>(entity =>

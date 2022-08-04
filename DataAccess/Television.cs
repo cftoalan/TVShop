@@ -5,6 +5,11 @@ namespace TVShop.DataAccess
 {
     public partial class Television
     {
+        public Television()
+        {
+            Invoices = new HashSet<Invoice>();
+        }
+
         public int ProductId { get; set; }
         public string? Model { get; set; }
         public int? ManufacturerId { get; set; }
@@ -15,5 +20,6 @@ namespace TVShop.DataAccess
         public int? Inventory { get; set; }
 
         public virtual Manufacturer? Manufacturer { get; set; }
+        public virtual ICollection<Invoice> Invoices { get; set; }
     }
 }

@@ -1,7 +1,5 @@
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using TVShop.DataAccess;
-using TVShop.Models.AdminAccess;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -34,7 +32,6 @@ app.UseRouting();
 
 app.UseSession();
 
-app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
