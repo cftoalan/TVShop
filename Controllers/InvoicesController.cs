@@ -46,30 +46,29 @@ namespace TVShop.Controllers
         }
 
         // GET: Invoices/Create
-        public IActionResult Create(int CustomerId, int ProductId)
+        public IActionResult Create(string CustomerId, int ProductId)
         {
-            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "CustomerId");
-            ViewData["ProductId"] = new SelectList(_context.Televisions, "ProductId", "ProductId");
-
-
-            return View();
+            Invoice invoice = new Invoice();
+            invoice.CustomerId = CustomerId;
+            invoice.ProductId = ProductId;
+            return View(invoice);
         }
 
         // POST: Invoices/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CustomerId,ProductId,Quantity,Date")] Invoice invoice)
+        public async Task<IActionResult> Create(Invoice invoice)
         {
+            //invoice.Customer = null;
+            //invoice.Product = null;
+
             if (ModelState.IsValid)
             {
                 _context.Add(invoice);
                 await _context.SaveChangesAsync();
+                
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "CustomerId", invoice.CustomerId);
-            ViewData["ProductId"] = new SelectList(_context.Televisions, "ProductId", "ProductId", invoice.ProductId);
             return View(invoice);
         }
 

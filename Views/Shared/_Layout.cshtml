@@ -10,50 +10,66 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">TVShop</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Products" asp-action="Index">Products</a>
-                        </li>
-                        <li class="nav-item">
-                        @{
-                                if(ViewData["LoggedIn"] != "yes")
-                                {
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Index">Login</a>
-                                }
-                                else
-                                {
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Logout" asp-action="Index">Logout</a>
-                                }       
+        <nav class=" fixed-top">
+		    <div class="menu">
+			    <ul>
+				    <li>
+                        <a class="menu-item" asp-controller="Home" asp-action="Index">
+					    <img type="image" src="~/Logo/hktvlogo.png" width="20" height="30"/>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a class="menu-item" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                    <li>
+                        <a class="menu-item" asp-controller="Home" asp-action="About">About Us</a>
+                    </li>
+                    <li>
+                        <a class="menu-item" asp-controller="Products" asp-action="Index">Our Product</a>
+                    </li>
+
+                    <li>
+                         @{
+                            if(ViewData["LoggedIn"] != "yes")
+                            {
+                                <a class="menu-item" asp-controller="Account" asp-action="Login">My Account / Order</a>
+                            }
+                            else
+                            {
+                                <a class="menu-item" asp-controller="Account" asp-action="AccountDetail">My Account / Order</a>
+                            }       
                         }
-                        </li>
-                    </ul>
-                </div>
+                    </li>
+                    <li>
+                        <form>
+                            <input  class="search-form"  type="text" name="search" placeholder="Search HKTV">
+                        </form>
+                    </li>
+                    @{
+                        if(ViewData["LoggedIn"] == "yes")
+                        {
+                            <div class="menu-item lgibt">
+                                <a class="menu-item btn btn-outline-warning lgibth"  asp-controller="Account" asp-action="Logout">Logout</a>
+                            </div>
+                        }       
+                    }
+                </ul>
+                
             </div>
+            
         </nav>
+        
     </header>
-    <div class="container">
+    <div @*class="container"*@>
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2022 - TVShop - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <footer class="border-top text-muted text-center">
+        <div class="container pt-3">
+            &copy; 2022 - HKTVShop - <a asp-controller="Home" asp-action="About">About Us</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

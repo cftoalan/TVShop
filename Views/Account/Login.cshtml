@@ -1,0 +1,36 @@
+﻿@model TVShop.DataAccess.Customer
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="pt-4">
+    <div class="text-center">
+        <h1 >Log In</h1>
+    </div>
+    <hr />
+    <div class=" mx-auto col-sm-4 neonText px-4 pt-4 pb-4">
+        <form asp-action="Login">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CustomerId" class="text-left"></label>
+                <input asp-for="CustomerId" class="form-control" />
+                @Html.ValidationMessage("IdError", new{ @class="text-danger"})
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="text-left"></label>
+                <input asp-for="Password" class="form-control" />
+                @Html.ValidationMessage("PasswordError", new{ @class="text-danger"})
+            </div>
+            <div class="form-group text-left">
+                Not registered yet? <a asp-controller="Customers" asp-action="Create">Register!</a>
+            </div>
+            <hr />
+            <div class="form-group">
+                <input type="submit" value="Log In" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+    
+</div>

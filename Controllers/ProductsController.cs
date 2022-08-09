@@ -80,20 +80,20 @@ namespace TVShop.Controllers
         }
 
         // GET: Products/Edit/5
-        public async Task<IActionResult> Buy(int? ProductId, int? CustomerId)
+        public async Task<IActionResult> Buy(int? ProductId, int? id)
         {
-            if (ProductId == null || _context.Televisions == null)
-            {
-                return NotFound();
-            }
+            //if (ProductId == null || _context.Televisions == null)
+            //{
+            //    return NotFound();
+            //}
 
-            var television = await _context.Televisions.FindAsync(ProductId);
-            if (television == null)
-            {
-                return NotFound();
-            }
-            ViewData["ManufacturerId"] = new SelectList(_context.Manufacturers, "ManufacturerId", "ManufacturerId", television.ManufacturerId);
-            return View(television);
+            //var television = await _context.Televisions.FindAsync(ProductId);
+            //if (television == null)
+            //{
+            //    return NotFound();
+            //}
+            //ViewData["ManufacturerId"] = new SelectList(_context.Manufacturers, "ManufacturerId", "ManufacturerId", television.ManufacturerId);
+            return View(/*television*/);
         }
 
         // POST: Products/Edit/5

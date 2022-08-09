@@ -28,8 +28,16 @@ namespace TVShop.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult About()
         {
+            if (HttpContext.Session.GetString("LoggedIn") == "yes")
+            {
+                ViewData["LoggedIn"] = "yes";
+            }
+            else
+            {
+                ViewData["LoggedIn"] = "no";
+            }
             return View();
         }
 

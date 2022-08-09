@@ -1,0 +1,47 @@
+﻿@model TVShop.DataAccess.Customer
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+<div class="text-center  pt-4">
+    <h1>My Account Details</h1>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-6 ">
+            <div class="overDiv">
+                @foreach (var item in Model.Invoices) {
+                        <tr>
+                            <td>
+                                @item.Product.Model
+                            </td>
+                            <td>
+                                @item.Product.Inventory
+                            </td>
+                            <td>
+                                @item.Quantity
+                            </td>
+                            <td>
+                                @item.Date
+                            </td>
+                        </tr>
+                }
+            </div>
+        </dt>
+        <dd class = "col-sm-6">
+            @Html.DisplayNameFor(model => model.Name)
+            @Html.DisplayFor(model => model.Name)
+            @Html.DisplayNameFor(model => model.Password)
+            @Html.DisplayFor(model => model.Password)
+
+            <div>
+                <a asp-controller="Products"  asp-action="Buy" asp-route-id="@Model?.CustomerId">Edit</a> |
+                <a asp-action="Index">Back to List</a>
+            </div>
+        </dd>
+        
+        
+    </dl>
+</div>
+

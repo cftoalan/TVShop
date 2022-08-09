@@ -2,15 +2,42 @@
     ViewData["Title"] = "Home Page";
 }
 
+
+<div class="site-wrapper text-center">
+
+    <div class="site-wrapper-inner">
+
+        <div class="container">
+
+
+            <div class="inner cover">
+                <img width="200" height="300" src="~/Logo/hktvlogo3.png"/><br/><br/>
+                <img class="lead" width="300" height="30" src="~/Logo/white_logo-01.png"/>
+                <br/><br/>
+                <p class="lead">
+                    <a  class="MainButton" asp-controller="Products" asp-action="Index">Explore Our Product</a>
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<br/>
 <div class="text-center">
-@{
+
+    @{
         if (ViewData["LoggedIn"]!="yes")
         {
-            <h1 class="display-4">Welcome to TV Shop! </h1>
-            <p><a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Index">Click here for Login!</a></p>
+            <p class="lead">
+                <a asp-controller="Customers" asp-action="Create" class="linkStyle text-warning">Register </a>
+                or <a asp-controller="Login" asp-action="Login" class="linkStyle text-warning">Sign in </a> 
+                to purchase and Check your Order !
+            </p>
           
         }else{
-            <h1 class="display-4">Welcome to TV Shop, @ViewData["CustomerName"]!</h1>
+            <p class="lead">Welcome @ViewData["CustomerName"] !, Click <a asp-controller="Account" asp-action="AccountDetail" class="linkStyle text-warning">here </a> to Check your Order</p>
         }
     }
 </div>
