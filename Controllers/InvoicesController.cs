@@ -46,25 +46,46 @@ namespace TVShop.Controllers
         }
 
         // GET: Invoices/Create
-        public IActionResult Create(string CustomerId, int ProductId)
+        public async Task<IActionResult> Create(string CustomerId, int ProductId)
         {
+
             Invoice invoice = new Invoice();
+            var customerdb = await _context.Customers.Include(i => i.Invoices).FirstOrDefaultAsync(c=>c.CustomerId== CustomerId);
             invoice.CustomerId = CustomerId;
             invoice.ProductId = ProductId;
+            invoice.Customer = customerdb;
+            invoice.Date = DateTime.Today;
             return View(invoice);
         }
 
         // POST: Invoices/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Invoice invoice)
+        public async Task<IActionResult> Create(string cid, int pid, Invoice invoice)
         {
-            //invoice.Customer = null;
-            //invoice.Product = null;
+            var productdb = await _context.Televisions.ToListAsync();
+            var customerdb = await _context.Customers.ToListAsync();
+            foreach (var product in productdb)
+            {
+                if (product.ProductId == pid)
+                {
+                    invoice.Product = product;
+                }
+
+            }
+            foreach (var customer in customerdb)
+            {
+                if (customer.CustomerId == cid)
+                {
+                    invoice.Customer = customer;
+                    invoice.Customer.CustomerId = customer.CustomerId;
+                }
+            }
+
 
             if (ModelState.IsValid)
             {
-                _context.Add(invoice);
+                _context.Invoices.Add(invoice);
                 await _context.SaveChangesAsync();
                 
                 return RedirectToAction(nameof(Index));

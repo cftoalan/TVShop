@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace TVShop.DataAccess
 {
@@ -8,7 +9,8 @@ namespace TVShop.DataAccess
         public string CustomerId { get; set; } = null!;
         public int ProductId { get; set; }
         public int? Quantity { get; set; }
-        public DateTime? Date { get; set; }
+        [DataType(DataType.Date)]
+        public DateTime Date { get; set; }
 
         public virtual Customer Customer { get; set; } = null!;
         public virtual Television Product { get; set; } = null!;
