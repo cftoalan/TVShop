@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4G+mdQ/TwT66QFCUyaF0r3COgWXvJJzxCC0oEo7OzfzkD4Ww7qx6zUc3/Zvk6SF4FenF1B/7q1pQCRBygc2WeQ==",
+  "dgSpecHash": "rZVra2+6UxHgf8wPPCRPHPURTlsLwaWwEm3oPoApGQYnnm6zx0770ahwMHPQM/g7+Lb5lczgNtbULPJOXo0yCA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\kwan6\\Source\\Repos\\TVShop\\TVShop.csproj",
+  "projectFilePath": "C:\\Users\\kwan6\\source\\repos\\TVShop\\TVShop.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\kwan6\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\kwan6\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",

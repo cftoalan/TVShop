@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\kwan6\\Source\\Repos\\TVShop\\TVShop.csproj": {}
+    "C:\\Users\\kwan6\\source\\repos\\TVShop\\TVShop.csproj": {}
   },
   "projects": {
-    "C:\\Users\\kwan6\\Source\\Repos\\TVShop\\TVShop.csproj": {
+    "C:\\Users\\kwan6\\source\\repos\\TVShop\\TVShop.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kwan6\\Source\\Repos\\TVShop\\TVShop.csproj",
+        "projectUniqueName": "C:\\Users\\kwan6\\source\\repos\\TVShop\\TVShop.csproj",
         "projectName": "TVShop",
-        "projectPath": "C:\\Users\\kwan6\\Source\\Repos\\TVShop\\TVShop.csproj",
+        "projectPath": "C:\\Users\\kwan6\\source\\repos\\TVShop\\TVShop.csproj",
         "packagesPath": "C:\\Users\\kwan6\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kwan6\\Source\\Repos\\TVShop\\obj\\",
+        "outputPath": "C:\\Users\\kwan6\\source\\repos\\TVShop\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\kwan6\\AppData\\Roaming\\NuGet\\NuGet.Config",
