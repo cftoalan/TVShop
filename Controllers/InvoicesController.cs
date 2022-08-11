@@ -26,7 +26,7 @@ namespace TVShop.Controllers
         }
 
         // GET: Invoices/Details/5
-        public async Task<IActionResult> Details(string id)
+        public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Invoices == null)
             {
@@ -36,7 +36,7 @@ namespace TVShop.Controllers
             var invoice = await _context.Invoices
                 .Include(i => i.Customer)
                 .Include(i => i.Product)
-                .FirstOrDefaultAsync(m => m.CustomerId == id);
+                .FirstOrDefaultAsync(m => m.InvoiceId == id);
             if (invoice == null)
             {
                 return NotFound();
@@ -46,11 +46,10 @@ namespace TVShop.Controllers
         }
 
         // GET: Invoices/Create
-        public async Task<IActionResult> Create(string CustomerId, int ProductId)
+        public async Task<IActionResult> Create(int CustomerId, int ProductId)
         {
-
             Invoice invoice = new Invoice();
-            var customerdb = await _context.Customers.Include(i => i.Invoices).FirstOrDefaultAsync(c=>c.CustomerId== CustomerId);
+            var customerdb = await _context.Customers.Include(i => i.Invoices).FirstOrDefaultAsync(c => c.CustomerId == CustomerId);
             invoice.CustomerId = CustomerId;
             invoice.ProductId = ProductId;
             invoice.Customer = customerdb;
@@ -61,7 +60,7 @@ namespace TVShop.Controllers
         // POST: Invoices/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(string cid, int pid, Invoice invoice)
+        public async Task<IActionResult> Create(int cid, int pid, Invoice invoice)
         {
             var productdb = await _context.Televisions.ToListAsync();
             var customerdb = await _context.Customers.ToListAsync();
@@ -78,7 +77,6 @@ namespace TVShop.Controllers
                 if (customer.CustomerId == cid)
                 {
                     invoice.Customer = customer;
-                    invoice.Customer.CustomerId = customer.CustomerId;
                 }
             }
 
@@ -87,14 +85,15 @@ namespace TVShop.Controllers
             {
                 _context.Invoices.Add(invoice);
                 await _context.SaveChangesAsync();
-                
+
                 return RedirectToAction(nameof(Index));
             }
             return View(invoice);
         }
 
+
         // GET: Invoices/Edit/5
-        public async Task<IActionResult> Edit(string id)
+        public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Invoices == null)
             {
@@ -116,9 +115,9 @@ namespace TVShop.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("CustomerId,ProductId,Quantity,Date")] Invoice invoice)
+        public async Task<IActionResult> Edit(int id, [Bind("InvoiceId,CustomerId,ProductId,Quantity,Date")] Invoice invoice)
         {
-            if (id != invoice.CustomerId)
+            if (id != invoice.InvoiceId)
             {
                 return NotFound();
             }
@@ -132,7 +131,7 @@ namespace TVShop.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!InvoiceExists(invoice.CustomerId))
+                    if (!InvoiceExists(invoice.InvoiceId))
                     {
                         return NotFound();
                     }
@@ -149,7 +148,7 @@ namespace TVShop.Controllers
         }
 
         // GET: Invoices/Delete/5
-        public async Task<IActionResult> Delete(string id)
+        public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Invoices == null)
             {
@@ -159,7 +158,7 @@ namespace TVShop.Controllers
             var invoice = await _context.Invoices
                 .Include(i => i.Customer)
                 .Include(i => i.Product)
-                .FirstOrDefaultAsync(m => m.CustomerId == id);
+                .FirstOrDefaultAsync(m => m.InvoiceId == id);
             if (invoice == null)
             {
                 return NotFound();
@@ -171,7 +170,7 @@ namespace TVShop.Controllers
         // POST: Invoices/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(string id)
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
             if (_context.Invoices == null)
             {
@@ -187,9 +186,9 @@ namespace TVShop.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool InvoiceExists(string id)
+        private bool InvoiceExists(int id)
         {
-          return (_context.Invoices?.Any(e => e.CustomerId == id)).GetValueOrDefault();
+          return (_context.Invoices?.Any(e => e.InvoiceId == id)).GetValueOrDefault();
         }
     }
 }

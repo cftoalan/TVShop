@@ -18,7 +18,7 @@ namespace TVShop.Controllers
             if (HttpContext.Session.GetString("LoggedIn") == "yes")
             {
                 ViewData["LoggedIn"] = "yes";
-                ViewData["CustomerId"] = HttpContext.Session.GetString("CustomerId");
+                ViewData["CustomerId"] = HttpContext.Session.GetInt32("CustomerId");
                 ViewData["CustomerName"] = HttpContext.Session.GetString("CustomerName");
             }
             else

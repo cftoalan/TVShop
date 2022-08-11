@@ -24,7 +24,7 @@ namespace TVShop.Controllers
             if (HttpContext.Session.GetString("LoggedIn") == "yes")
             {
                 ViewData["LoggedIn"] = "yes";
-                ViewData["CustomerId"] = HttpContext.Session.GetString("CustomerId");
+                ViewData["CustomerId"] = HttpContext.Session.GetInt32("CustomerId");
                 ViewData["CustomerName"] = HttpContext.Session.GetString("CustomerName");
             }
             else
@@ -80,20 +80,20 @@ namespace TVShop.Controllers
         }
 
         // GET: Products/Edit/5
-        public async Task<IActionResult> Buy(int? ProductId, int? id)
+        public async Task<IActionResult> Edit(int? id)
         {
-            //if (ProductId == null || _context.Televisions == null)
-            //{
-            //    return NotFound();
-            //}
+            if (id == null || _context.Televisions == null)
+            {
+                return NotFound();
+            }
 
-            //var television = await _context.Televisions.FindAsync(ProductId);
-            //if (television == null)
-            //{
-            //    return NotFound();
-            //}
-            //ViewData["ManufacturerId"] = new SelectList(_context.Manufacturers, "ManufacturerId", "ManufacturerId", television.ManufacturerId);
-            return View(/*television*/);
+            var television = await _context.Televisions.FindAsync(id);
+            if (television == null)
+            {
+                return NotFound();
+            }
+            ViewData["ManufacturerId"] = new SelectList(_context.Manufacturers, "ManufacturerId", "ManufacturerId", television.ManufacturerId);
+            return View(television);
         }
 
         // POST: Products/Edit/5

@@ -3,7 +3,7 @@
 @{
     ViewData["Title"] = "Index";
 }
-<div class="text-center  pt-4">
+
 <h1>Index</h1>
 
 <p>
@@ -43,12 +43,11 @@
                 @Html.DisplayFor(modelItem => item.Product.ProductId)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                <a asp-action="Edit" asp-route-id="@item.InvoiceId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.InvoiceId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.InvoiceId">Delete</a>
             </td>
         </tr>
 }
     </tbody>
 </table>
-</div>

@@ -8,8 +8,7 @@ html {
 body {
     font-family: "Source Sans Pro", sans-serif;
     background-color: #333;
-    /*text-align: center;*/
-    text-shadow: 0 1px 3px rgba(0,0,0,.5);
+    /*text-shadow: 0 1px 3px rgba(0,0,0,.5);*/
     margin-bottom: 60px;
     color: #fff;
     margin-top: 40px;
@@ -27,40 +26,39 @@ nav {
 
 
 .menu {
-    
     margin: 0 auto;
     width: 1000px;
     overflow: hidden;
 }
 
-.menu ul{
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: space-between;
-}
+    .menu ul {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: space-between;
+    }
 
-.menu ul li,.search-form  {
-    list-style: none;
-}
+        .menu ul li, .search-form {
+            list-style: none;
+        }
 
-.menu ul li,
-.menu ul li a {
-    color: #fff;
-    line-height: 44px;
-    text-decoration: none;
-}
+            .menu ul li,
+            .menu ul li a {
+                color: #fff;
+                line-height: 44px;
+                text-decoration: none;
+            }
 
-.menu ul li a .fa.fa-apple {
-    font-size: 20px;
-}
+                .menu ul li a .fa.fa-apple {
+                    font-size: 20px;
+                }
 
-.menu ul li a .menu-item {
-    transform: scale(1);
-    transition: 0.5s;
-    display: block;
-}
+                .menu ul li a .menu-item {
+                    transform: scale(1);
+                    transition: 0.5s;
+                    display: block;
+                }
 
 
 
@@ -73,7 +71,6 @@ nav {
 
 .lgibt {
     margin-top: 9px;
-    
 }
 
 .lgibth {
@@ -90,7 +87,6 @@ nav {
 
 
 footer {
-    
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -108,10 +104,10 @@ footer {
     padding: 0 20px;
 }
 
-.cover .btn-lg {
-    padding: 10px 20px;
-    font-weight: bold;
-}
+    .cover .btn-lg {
+        padding: 10px 20px;
+        font-weight: bold;
+    }
 
 
 
@@ -120,21 +116,20 @@ a,
 a:focus,
 a:hover {
     color: #fff;
-    
 }
 
 .linkStyle {
     text-decoration: none;
 }
-.linkStyle:hover {
-    text-decoration: underline;
-}
+
+    .linkStyle:hover {
+        text-decoration: underline;
+    }
 
 .btn-default,
 .btn-default:hover,
 .btn-default:focus {
-    color: #333;
-    text-shadow: none;
+    color: #fff;
     background-color: #fff;
     border: 1px solid #fff;
 }
@@ -147,8 +142,7 @@ a:hover {
     display: table;
     width: 100%;
     height: 700px;
-    background-color: #333;
-    
+    background-color: #fff;
 }
 
 .site-wrapper-inner {
@@ -156,7 +150,7 @@ a:hover {
     vertical-align: top;
     background-image: url('/Img/cover.jpg');
     background-position: center center;
-    background-size:2000px 1000px;
+    background-size: 2000px 1000px;
     background-repeat: no-repeat;
 }
 
@@ -182,7 +176,7 @@ a:hover {
 
 
 .MainButton {
-    color:burlywood;
+    color: burlywood;
     border: 6px solid #ffd800;
     border-radius: 15px;
     padding: 5px 15px;
@@ -213,6 +207,10 @@ a:hover {
 
 .overDiv {
     width: cover;
-    height: 110px;
+    height: 400px;
     overflow: auto;
+}
+
+th {
+    color: white;
 }

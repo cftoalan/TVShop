@@ -22,7 +22,7 @@ namespace TVShop.Controllers
         public async Task<IActionResult> Login()
         {
             return View();
-                          
+
         }
 
 
@@ -37,10 +37,11 @@ namespace TVShop.Controllers
             string name = "";
             foreach (Customer cust in customerContext)
             {
-                if (cust.CustomerId == customer.CustomerId)
+                if (cust.Name == customer.Name)
                 {
                     name = cust.Name;
                     idFound = true;
+                    customer.CustomerId = cust.CustomerId;
 
                     if (cust.Password == customer.Password)
                     {
@@ -49,11 +50,11 @@ namespace TVShop.Controllers
                 }
             }
 
-            if (customer.CustomerId==null)
+            if (customer.CustomerId == null)
             {
                 ModelState.AddModelError("IdError", "Please enter the User ID");
             }
-            if (customer.Password==null)
+            if (customer.Password == null)
             {
                 ModelState.AddModelError("PasswordError", "Please enter the Password");
             }
@@ -73,7 +74,7 @@ namespace TVShop.Controllers
             if (ModelState.IsValid)
             {
                 HttpContext.Session.SetString("LoggedIn", "yes");
-                HttpContext.Session.SetString("CustomerId", customer.CustomerId.ToString());
+                HttpContext.Session.SetInt32("CustomerId", customer.CustomerId);
                 HttpContext.Session.SetString("CustomerName", name);
                 return RedirectToAction("AccountDetail", new { id = customer.CustomerId });
             }
@@ -81,12 +82,12 @@ namespace TVShop.Controllers
         }
 
 
-        public async Task<IActionResult> AccountDetail(string id)
+        public async Task<IActionResult> AccountDetail(int id)
         {
             if (HttpContext.Session.GetString("LoggedIn") == "yes")
             {
                 ViewData["LoggedIn"] = "yes";
-                id = HttpContext.Session.GetString("CustomerId");
+                id = (int)HttpContext.Session.GetInt32("CustomerId");
             }
             else
             {
@@ -109,7 +110,7 @@ namespace TVShop.Controllers
                 }
 
             }
-            
+
             return View(customerdt);
         }
 
@@ -123,14 +124,9 @@ namespace TVShop.Controllers
 
 
 
-
-
-
-
-
-        private bool CustomerExists(string id)
+        private bool CustomerExists(int id)
         {
-          return (_context.Customers?.Any(e => e.CustomerId == id)).GetValueOrDefault();
+            return (_context.Customers?.Any(e => e.CustomerId == id)).GetValueOrDefault();
         }
     }
 }

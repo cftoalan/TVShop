@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 
 namespace TVShop.DataAccess
 {
@@ -14,6 +13,7 @@ namespace TVShop.DataAccess
         public int ManufacturerId { get; set; }
         public string? Name { get; set; }
         public string? Country { get; set; }
+        public string? Detail { get; set; }
 
         public virtual ICollection<Television> Televisions { get; set; }
     }

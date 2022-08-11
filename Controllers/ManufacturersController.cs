@@ -9,87 +9,87 @@ using TVShop.DataAccess;
 
 namespace TVShop.Controllers
 {
-    public class CustomersController : Controller
+    public class ManufacturersController : Controller
     {
         private readonly FinalProjectContext _context;
 
-        public CustomersController(FinalProjectContext context)
+        public ManufacturersController(FinalProjectContext context)
         {
             _context = context;
         }
 
-        // GET: Customers
+        // GET: Manufacturers
         public async Task<IActionResult> Index()
         {
-              return _context.Customers != null ? 
-                          View(await _context.Customers.ToListAsync()) :
-                          Problem("Entity set 'FinalProjectContext.Customers'  is null.");
+              return _context.Manufacturers != null ? 
+                          View(await _context.Manufacturers.ToListAsync()) :
+                          Problem("Entity set 'FinalProjectContext.Manufacturers'  is null.");
         }
 
-        // GET: Customers/Details/5
+        // GET: Manufacturers/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Customers == null)
+            if (id == null || _context.Manufacturers == null)
             {
                 return NotFound();
             }
 
-            var customer = await _context.Customers
-                .FirstOrDefaultAsync(m => m.CustomerId == id);
-            if (customer == null)
+            var manufacturer = await _context.Manufacturers
+                .FirstOrDefaultAsync(m => m.ManufacturerId == id);
+            if (manufacturer == null)
             {
                 return NotFound();
             }
 
-            return View(customer);
+            return View(manufacturer);
         }
 
-        // GET: Customers/Create
+        // GET: Manufacturers/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Customers/Create
+        // POST: Manufacturers/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CustomerId,Name,Password")] Customer customer)
+        public async Task<IActionResult> Create([Bind("ManufacturerId,Name,Country,Detail")] Manufacturer manufacturer)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(customer);
+                _context.Add(manufacturer);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(customer);
+            return View(manufacturer);
         }
 
-        // GET: Customers/Edit/5
+        // GET: Manufacturers/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Customers == null)
+            if (id == null || _context.Manufacturers == null)
             {
                 return NotFound();
             }
 
-            var customer = await _context.Customers.FindAsync(id);
-            if (customer == null)
+            var manufacturer = await _context.Manufacturers.FindAsync(id);
+            if (manufacturer == null)
             {
                 return NotFound();
             }
-            return View(customer);
+            return View(manufacturer);
         }
 
-        // POST: Customers/Edit/5
+        // POST: Manufacturers/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CustomerId,Name,Password")] Customer customer)
+        public async Task<IActionResult> Edit(int id, [Bind("ManufacturerId,Name,Country,Detail")] Manufacturer manufacturer)
         {
-            if (id != customer.CustomerId)
+            if (id != manufacturer.ManufacturerId)
             {
                 return NotFound();
             }
@@ -98,12 +98,12 @@ namespace TVShop.Controllers
             {
                 try
                 {
-                    _context.Update(customer);
+                    _context.Update(manufacturer);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!CustomerExists(customer.CustomerId))
+                    if (!ManufacturerExists(manufacturer.ManufacturerId))
                     {
                         return NotFound();
                     }
@@ -114,49 +114,49 @@ namespace TVShop.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(customer);
+            return View(manufacturer);
         }
 
-        // GET: Customers/Delete/5
+        // GET: Manufacturers/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Customers == null)
+            if (id == null || _context.Manufacturers == null)
             {
                 return NotFound();
             }
 
-            var customer = await _context.Customers
-                .FirstOrDefaultAsync(m => m.CustomerId == id);
-            if (customer == null)
+            var manufacturer = await _context.Manufacturers
+                .FirstOrDefaultAsync(m => m.ManufacturerId == id);
+            if (manufacturer == null)
             {
                 return NotFound();
             }
 
-            return View(customer);
+            return View(manufacturer);
         }
 
-        // POST: Customers/Delete/5
+        // POST: Manufacturers/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Customers == null)
+            if (_context.Manufacturers == null)
             {
-                return Problem("Entity set 'FinalProjectContext.Customers'  is null.");
+                return Problem("Entity set 'FinalProjectContext.Manufacturers'  is null.");
             }
-            var customer = await _context.Customers.FindAsync(id);
-            if (customer != null)
+            var manufacturer = await _context.Manufacturers.FindAsync(id);
+            if (manufacturer != null)
             {
-                _context.Customers.Remove(customer);
+                _context.Manufacturers.Remove(manufacturer);
             }
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool CustomerExists(int id)
+        private bool ManufacturerExists(int id)
         {
-          return (_context.Customers?.Any(e => e.CustomerId == id)).GetValueOrDefault();
+          return (_context.Manufacturers?.Any(e => e.ManufacturerId == id)).GetValueOrDefault();
         }
     }
 }

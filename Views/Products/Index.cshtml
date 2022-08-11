@@ -39,9 +39,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Manufacturer)
             </th>
-            <th>
-                Action
-            </th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -66,14 +64,13 @@
                 @Html.DisplayFor(modelItem => item.Inventory)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Manufacturer.Name)
+                @Html.DisplayFor(modelItem => item.Manufacturer.ManufacturerId)
             </td>
             <td>
-                    @if (ViewData["LoggedIn"] == "yes")
+                @if (ViewData["LoggedIn"] == "yes")
                     {
                          <a  asp-controller="Invoices" asp-action="Create" asp-route-ProductId="@item.ProductId" asp-route-CustomerId="@ViewData["CustomerId"]">Buy</a>
                     }
-               
             </td>
         </tr>
 }

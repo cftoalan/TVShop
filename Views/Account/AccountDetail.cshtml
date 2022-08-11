@@ -9,31 +9,93 @@
     <h1>My Account Details</h1>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-6 ">
-            <div class="overDiv">
-                @foreach (var item in Model.Invoices) {
-                        <tr>
-                            <td>
-                                @item.Product.Model
-                            </td>
-                            <td>
-                                @item.Product.Inventory
-                            </td>
-                            <td>
-                                @item.Quantity
-                            </td>
-                            <td>
-                                @item.Date
-                            </td>
+        <dt class = "col-md-8 overDiv">
+            
+                <table class="table text-white">
+                        <tr >
+                            <th>
+                                Model
+                            </th>
+                            <th>
+                                Manufacturer
+                            </th>
+                            <th>
+                                HdrSupport
+                            </th>
+                            <th>
+                                Inventory In Store
+                            </th>
+                            <th>
+                                Price
+                            </th>
+                            <th>
+                                Quantity
+                            </th>
+                            <th>
+                                Prefer Delivery Date
+                            </th>
                         </tr>
-                }
-            </div>
+                        @foreach (var item in Model.Invoices) {
+                            <tr>
+                                <td>
+                                    @item.Product.Model
+                                </td>
+                                <td>
+                                    @item.Product.Manufacturer
+                                </td>
+                                <td>
+                                    @item.Product.HdrSupport
+                                </td>
+                                <td>
+                                    @item.Product.Inventory
+                                </td>
+                                <td>
+                                    @item.Product.Price
+                                </td>
+                                <td>
+                                    @item.Quantity
+                                </td>
+                                <td>
+                                    @item.Date
+                                </td>
+                            </tr>
+                        }
+                    
+                </table>
         </dt>
-        <dd class = "col-sm-6">
+        <dd class = "col-md-2 text-center">
             @Html.DisplayNameFor(model => model.Name)
             @Html.DisplayFor(model => model.Name)
             @Html.DisplayNameFor(model => model.Password)
             @Html.DisplayFor(model => model.Password)
+
+             <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Password)
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+            
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(item => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(item => item.Password)
+                        </td>
+                        
+                    </tr>
+            
+                </tbody>
+            </table>
+
+
 
             <div>
                 <a asp-controller="Products"  asp-action="Buy" asp-route-id="@Model?.CustomerId">Edit</a> |

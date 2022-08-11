@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 
 namespace TVShop.DataAccess
 {
@@ -11,7 +10,7 @@ namespace TVShop.DataAccess
             Invoices = new HashSet<Invoice>();
         }
 
-        public string CustomerId { get; set; } = null!;
+        public int CustomerId { get; set; }
         public string? Name { get; set; }
         public string? Password { get; set; }
 
