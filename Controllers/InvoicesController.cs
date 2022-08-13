@@ -18,42 +18,31 @@ namespace TVShop.Controllers
             _context = context;
         }
 
-        // GET: Invoices
-        public async Task<IActionResult> Index()
-        {
-            var finalProjectContext = _context.Invoices.Include(i => i.Customer).Include(i => i.Product);
-            return View(await finalProjectContext.ToListAsync());
-        }
-
-        // GET: Invoices/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null || _context.Invoices == null)
-            {
-                return NotFound();
-            }
-
-            var invoice = await _context.Invoices
-                .Include(i => i.Customer)
-                .Include(i => i.Product)
-                .FirstOrDefaultAsync(m => m.InvoiceId == id);
-            if (invoice == null)
-            {
-                return NotFound();
-            }
-
-            return View(invoice);
-        }
+        
 
         // GET: Invoices/Create
         public async Task<IActionResult> Create(int CustomerId, int ProductId)
         {
+            if (HttpContext.Session.GetString("LoggedIn") == "yes")
+            {
+                ViewData["LoggedIn"] = "yes";
+                ViewData["CustomerId"] = HttpContext.Session.GetInt32("CustomerId");
+                ViewData["CustomerName"] = HttpContext.Session.GetString("CustomerName");
+            }
+            else
+            {
+                ViewData["LoggedIn"] = "no";
+            }
+
+
             Invoice invoice = new Invoice();
+            var productdb = await _context.Televisions.Include(t => t.Manufacturer).FirstOrDefaultAsync(t => t.ProductId == ProductId);
             var customerdb = await _context.Customers.Include(i => i.Invoices).FirstOrDefaultAsync(c => c.CustomerId == CustomerId);
             invoice.CustomerId = CustomerId;
             invoice.ProductId = ProductId;
             invoice.Customer = customerdb;
             invoice.Date = DateTime.Today;
+            invoice.Product = productdb;
             return View(invoice);
         }
 
@@ -80,47 +69,104 @@ namespace TVShop.Controllers
                 }
             }
 
+            if (invoice.Quantity == null || invoice.Quantity == 0)
+            {
+                ModelState.AddModelError("QError", "Please enter the Quantity.");
+            }
+
+            if (invoice.Quantity < 0)
+            {
+                ModelState.AddModelError("QError", "Quantity must more than 1.");
+            }
+
+            if (invoice.Quantity > invoice.Product.Inventory)
+            {
+                ModelState.AddModelError("QError", "Sorry, we do not have enough Inventory right now.");
+            }
+
+            if (invoice.Date <= DateTime.Today)
+            {
+                ModelState.AddModelError("DError", "Please Choose the day after today.");
+            }
+
+
 
             if (ModelState.IsValid)
             {
                 _context.Invoices.Add(invoice);
                 await _context.SaveChangesAsync();
 
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("AccountDetail", "Account");
             }
             return View(invoice);
         }
 
 
         // GET: Invoices/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(int id)
         {
-            if (id == null || _context.Invoices == null)
+            if (HttpContext.Session.GetString("LoggedIn") == "yes")
             {
-                return NotFound();
+                ViewData["LoggedIn"] = "yes";
+                ViewData["CustomerId"] = HttpContext.Session.GetInt32("CustomerId");
+                ViewData["CustomerName"] = HttpContext.Session.GetString("CustomerName");
+            }
+            else
+            {
+                ViewData["LoggedIn"] = "no";
             }
 
-            var invoice = await _context.Invoices.FindAsync(id);
-            if (invoice == null)
-            {
-                return NotFound();
-            }
-            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "CustomerId", invoice.CustomerId);
-            ViewData["ProductId"] = new SelectList(_context.Televisions, "ProductId", "ProductId", invoice.ProductId);
-            return View(invoice);
+            var invdb = await _context.Invoices.Include(i => i.Customer).Include(i => i.Product).FirstOrDefaultAsync(i => i.InvoiceId == id);
+
+
+            return View(invdb);
         }
 
         // POST: Invoices/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("InvoiceId,CustomerId,ProductId,Quantity,Date")] Invoice invoice)
+        public async Task<IActionResult> Edit(int id, Invoice invoice)
         {
-            if (id != invoice.InvoiceId)
+
+
+            var productdb = await _context.Televisions.ToListAsync();
+            var customerdb = await _context.Customers.ToListAsync();
+            foreach (var product in productdb)
             {
-                return NotFound();
+                if (product.ProductId == invoice.ProductId)
+                {
+                    invoice.Product = product;
+                }
+
             }
+            foreach (var customer in customerdb)
+            {
+                if (customer.CustomerId == invoice.CustomerId)
+                {
+                    invoice.Customer = customer;
+                }
+            }
+
+            if (invoice.Quantity > invoice.Product.Inventory)
+            {
+               ModelState.AddModelError("QError", "Sorry, we do not have enough Inventory right now.");
+            }
+
+            if (invoice.Quantity == null || invoice.Quantity == 0)
+            {
+                ModelState.AddModelError("QError", "Please enter the Quantity.");
+            }
+
+            if (invoice.Quantity < 0)
+            {
+                ModelState.AddModelError("QError", "Quantity must more than 1.");
+            }
+
+            if (invoice.Date <= DateTime.Today)
+            {
+                ModelState.AddModelError("DError", "Please Choose the day after today.");
+            }
+
 
             if (ModelState.IsValid)
             {
@@ -140,50 +186,40 @@ namespace TVShop.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("AccountDetail", "Account");
             }
-            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "CustomerId", invoice.CustomerId);
-            ViewData["ProductId"] = new SelectList(_context.Televisions, "ProductId", "ProductId", invoice.ProductId);
-            return View(invoice);
-        }
-
-        // GET: Invoices/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null || _context.Invoices == null)
-            {
-                return NotFound();
-            }
-
-            var invoice = await _context.Invoices
-                .Include(i => i.Customer)
-                .Include(i => i.Product)
-                .FirstOrDefaultAsync(m => m.InvoiceId == id);
-            if (invoice == null)
-            {
-                return NotFound();
-            }
-
             return View(invoice);
         }
 
         // POST: Invoices/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> Delete(int ProductId, int CustomerId)
         {
-            if (_context.Invoices == null)
-            {
-                return Problem("Entity set 'FinalProjectContext.Invoices'  is null.");
-            }
-            var invoice = await _context.Invoices.FindAsync(id);
+            
+            var invoice = await _context.Invoices.FirstOrDefaultAsync(i=>i.CustomerId== CustomerId && i.ProductId==ProductId);
             if (invoice != null)
             {
                 _context.Invoices.Remove(invoice);
             }
             
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("AccountDetail", "Account");
+        }
+
+        public async Task<IActionResult> DeleteAll(int CustomerId)
+        {
+
+            var invoice = await _context.Invoices.Where(i=>i.CustomerId== CustomerId).ToListAsync();
+            foreach (var cus in invoice)
+            {
+                if (cus.CustomerId==CustomerId)
+                {
+                    _context.Invoices.Remove(cus);
+                }
+            }
+            
+
+            await _context.SaveChangesAsync();
+            return RedirectToAction("AccountDetail", "Account");
         }
 
         private bool InvoiceExists(int id)

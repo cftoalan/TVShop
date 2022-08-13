@@ -4,44 +4,48 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
+<div class="pt-4 mx-5 text-center px-5">
+    <h1>Television Brands</h1>
+   
+     <hr />
+    <table>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
+            <th class="col-md-2 px-4">
+               <a asp-action="Details" asp-route-id="1">
+                   <img class="img-fluid px-5" src="BrandLogo/LG.png" />
+               </a> 
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Country)
+            <th class="col-md-2 px-4">
+                <a asp-action="Details" asp-route-id="2">
+                <img class="img-fluid" src="BrandLogo/Samsung.png"/>
+                </a> 
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Detail)
+            <th class="col-md-2 px-4">
+                <a asp-action="Details" asp-route-id="3">
+                <img class="img-fluid" src="BrandLogo/Sony.png"/>
+                </a> 
             </th>
-            <th></th>
+            <th class="col-md-2 px-4">
+                <a asp-action="Details" asp-route-id="4">
+                <img class="img-fluid" src="BrandLogo/Philips.png"/>
+                </a> 
+            </th>
+            
+            
         </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
+       
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Country)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Detail)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ManufacturerId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ManufacturerId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ManufacturerId">Delete</a>
-            </td>
+            @foreach (var item in Model) {
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                    <br>
+                    <a asp-action="Details" asp-route-id="@item.ManufacturerId">Details</a>
+                </td>
+            }
         </tr>
-}
-    </tbody>
-</table>
+    </table>
+    <br>
+    <hr />
+        
+</div>

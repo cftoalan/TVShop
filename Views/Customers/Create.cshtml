@@ -4,34 +4,54 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
-
-<h4>Customer</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
+<div class="pt-4">
+    <div class="text-center">
+        <h1 >Sign In</h1>
+    </div>
+    <hr />
+    <div class=" mx-auto col-sm-4 neonText px-4 pt-4 pb-4 mt-5">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
+                <label asp-for="Name" class="text-left">User Name</label>
                 <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
+                @Html.ValidationMessage("NError", new{ @class="text-danger"})
             </div>
             <div class="form-group">
-                <label asp-for="Password" class="control-label"></label>
-                <input asp-for="Password" class="form-control" />
-                <span asp-validation-for="Password" class="text-danger"></span>
+                <label asp-for="Password" class="text-left"></label>
+                <input type="password" asp-for="Password" class="form-control" />
+                @Html.ValidationMessage("PError", new{ @class="text-danger"})
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <label asp-for="Address" class="text-left">Delivery Address</label>
+                <input asp-for="Address" class="form-control" />
+                @Html.ValidationMessage("AError", new{ @class="text-danger"})
             </div>
+            <div class="form-group">
+                <label asp-for="Phone" class="text-left"></label>
+                <input asp-for="Phone" class="form-control" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+                @Html.ValidationMessage("PhError", new{ @class="text-danger"})
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="text-left">Email (Optional)</label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <br />
+            <hr />
+            <div class="form-group mx-auto">
+                <input type="submit" value="Register Now" class="btn btn-outline-warning" />
+                <a  class="btn btn-outline-warning" asp-controller="Account" asp-action="Login">Back</a>
+
+            </div>
+            
         </form>
     </div>
+    
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

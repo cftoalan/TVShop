@@ -3,76 +3,78 @@
 @{
     ViewData["Title"] = "Index";
 }
+<div class="pt-4 mx-5 text-center px-5">
 
-<h1>Index</h1>
+    <h1>Available Televisions</h1>
 
-<p>
-    @if (ViewData["LoggedIn"]!="yes")
-        {
-            <a>You are not logged in yet! Login to purchase TV!</a>
+    <p>
+        @if (ViewData["LoggedIn"]!="yes")
+            {
+                <a class="MainButton6" asp-controller="Account" asp-action="Login">Log In / Sign In to purchase TV!</a>
           
-        }else{
-            <a>You are logged in as CustomerId: @ViewData["CustomerId"], Name: @ViewData["CustomerName"]</a>
-        }
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Model)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Resolution)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.HdrSupport)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ScreenSize)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Inventory)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Manufacturer)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Model)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Resolution)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HdrSupport)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ScreenSize)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Inventory)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Manufacturer.ManufacturerId)
-            </td>
-            <td>
-                @if (ViewData["LoggedIn"] == "yes")
-                    {
-                         <a  asp-controller="Invoices" asp-action="Create" asp-route-ProductId="@item.ProductId" asp-route-CustomerId="@ViewData["CustomerId"]">Buy</a>
-                    }
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+            }else{
+                <a>Welcome! @ViewData["CustomerName"] to Hong Kong Television </a>
+            }
+    </p>
+    <table class="table text-white">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Model)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Resolution)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.HdrSupport)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ScreenSize)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Price)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Inventory)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Manufacturer)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+    @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Model)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Resolution)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HdrSupport)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ScreenSize)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Inventory)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Manufacturer.Name)
+                </td>
+                <td>
+                    @if (ViewData["LoggedIn"] == "yes")
+                        {
+                             <a  asp-controller="Invoices" asp-action="Create" asp-route-ProductId="@item.ProductId" asp-route-CustomerId="@ViewData["CustomerId"]">Buy</a>
+                        }
+                </td>
+            </tr>
+    }
+        </tbody>
+    </table>
+</div>

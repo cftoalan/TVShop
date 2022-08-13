@@ -3,47 +3,83 @@
 @{
     ViewData["Title"] = "Create";
 }
+<div class="pt-4 mx-5 text-center px-5">
+    <h1>Create</h1>
 
-<h1>Create</h1>
-
-<h4>Invoice</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="CustomerId" />
-            <input type="hidden" asp-for="ProductId" />
-            <input type="hidden" asp-for="Customer.CustomerId" />
-            <input type="hidden" asp-for="Customer.Invoices" />
-            <input type="hidden" asp-for="Product.Invoices" />
-            <input type="hidden" asp-for="Product.Manufacturer" />
+    <h4>Invoice</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-5  mx-auto">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="CustomerId" />
+                <input type="hidden" asp-for="ProductId" />
+                <input type="hidden" asp-for="Customer.CustomerId" />
+                <input type="hidden" asp-for="Customer.Invoices" />
+                <input type="hidden" asp-for="Product.Invoices" />
+                <input type="hidden" asp-for="Product.Manufacturer" />
             
 
-            <div class="form-group">
-                <label asp-for="ProductId" class="control-label"></label>
-                @Html.DisplayFor(model =>model.ProductId)
-            </div>
-            <div class="form-group">
-                <label asp-for="Quantity" class="control-label"></label>
-                <input asp-for="Quantity" class="form-control" />
-                <span asp-validation-for="Quantity" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Date" class="control-label"></label>
-                <input asp-for="Date" class="form-control" />
-                <span asp-validation-for="Date" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" asp-route-cid="@Model.CustomerId" asp-route-pid="@Model.ProductId"/>
-            </div>
-        </form>
+                <div class="form-group">
+                    <table class="mx-auto w-50">
+                        <tr>
+                            <td>
+                                @Html.DisplayNameFor(model =>model.Product.Model):
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model =>model.Product.Model)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.DisplayNameFor(model =>model.Product.Price):
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model =>model.Product.Price)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.DisplayNameFor(model =>model.Product.Inventory):
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model =>model.Product.Inventory)
+                            </td>
+                        </tr>
+                    </table>
+                    
+                </div>
+                <br />
+
+                <div class="form-group row">
+                        <label asp-for="Quantity" class="control-label"></label>
+                        <br />
+                        <input asp-for="Quantity" class="form-control w-50 mx-auto" />
+                        @Html.ValidationMessage("QError", new{ @class="text-danger"})
+                         <span asp-validation-for="Quantity" class="text-danger"></span>
+                </div>
+                <br />
+                <div class="form-group row">
+                        <label asp-for="Date" class="control-label">Prefer Delivery Date</label>
+                        <br />
+                        <input asp-for="Date" class="form-control w-50 mx-auto"/>
+                        @Html.ValidationMessage("DError", new{ @class="text-danger"})
+                       
+                </div>
+
+                <br />
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-outline-warning" asp-route-cid="@Model.CustomerId" asp-route-pid="@Model.ProductId"/>
+                </div>
+            </form>
+        </div>
+    </div>
+     <br />
+    <div>
+        <a asp-controller="Account" asp-action="AccountDetail">Back to List</a>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

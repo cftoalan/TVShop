@@ -26,21 +26,26 @@
                         <a class="menu-item" asp-controller="Home" asp-action="About">About Us</a>
                     </li>
                     <li>
+                        <a class="menu-item" asp-controller="Manufacturers" asp-action="Index">TV Brands</a>
+                    </li>
+                    <li>
                         <a class="menu-item" asp-controller="Products" asp-action="Index">Our Product</a>
                     </li>
 
-                    <li>
                          @{
                             if(ViewData["LoggedIn"] != "yes")
                             {
-                                <a class="menu-item" asp-controller="Account" asp-action="Login">My Account / Order</a>
+                                <div class="menu-item lgibt">
+                                    <a class="menu-item btn btn-outline-warning lgibth" asp-controller="Account" asp-action="Login">Login</a>
+                                </div>
                             }
                             else
-                            {
-                                <a class="menu-item" asp-controller="Account" asp-action="AccountDetail">My Account / Order</a>
+                            {   
+                                <li>
+                                    <a class="menu-item" asp-controller="Account" asp-action="AccountDetail">My Account / Order</a>
+                                </li>
                             }       
                         }
-                    </li>
                     <li>
                         <form>
                             <input  class="search-form"  type="text" name="search" placeholder="Search HKTV">

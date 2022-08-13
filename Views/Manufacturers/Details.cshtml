@@ -3,34 +3,33 @@
 @{
     ViewData["Title"] = "Details";
 }
-
-<h1>Details</h1>
-
-<div>
-    <h4>Manufacturer</h4>
+<div class="text-center pt-4">
+    <h1>Brand's Detail</h1>
     <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Country)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Country)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Detail)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Detail)
-        </dd>
-    </dl>
+    <div class="table-users mx-auto">
+   
+       <table  class="mx-auto tb1">
+          <tr>
+             <th class="pt-4 px-5">Name</th>
+             <th class="pt-4 px-5">Country</th>
+             <th width="600" class="pt-2 px-5">Detail</th>
+          </tr>
+
+          <tr>
+             <td class="pb-4">@Html.DisplayFor(model => model.Name)</td>
+             <td class="pb-4">@Html.DisplayFor(model => model.Country)</td>
+             <td class="pb-4 px-5">@Html.DisplayFor(model => model.Detail) </td>
+          </tr>
+
+       </table>
+       <br />
+       <div>
+            <a asp-action="Index">Back to List</a>&nbsp;|&nbsp;
+            <a asp-controller="Products" asp-action="Index">Back to Our Product</a>
+        </div>
+    </div>
+
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.ManufacturerId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+
+
+

@@ -8,7 +8,6 @@ html {
 body {
     font-family: "Source Sans Pro", sans-serif;
     background-color: #333;
-    /*text-shadow: 0 1px 3px rgba(0,0,0,.5);*/
     margin-bottom: 60px;
     color: #fff;
     margin-top: 40px;
@@ -31,34 +30,34 @@ nav {
     overflow: hidden;
 }
 
-    .menu ul {
-        width: 100%;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        justify-content: space-between;
-    }
+.menu ul {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+}
 
-        .menu ul li, .search-form {
-            list-style: none;
-        }
+.menu ul li, .search-form {
+    list-style: none;
+}
 
-            .menu ul li,
-            .menu ul li a {
-                color: #fff;
-                line-height: 44px;
-                text-decoration: none;
-            }
+.menu ul li,
+.menu ul li a {
+    color: #fff;
+    line-height: 44px;
+    text-decoration: none;
+}
 
-                .menu ul li a .fa.fa-apple {
-                    font-size: 20px;
-                }
+.menu ul li a .fa.fa-apple {
+    font-size: 20px;
+}
 
-                .menu ul li a .menu-item {
-                    transform: scale(1);
-                    transition: 0.5s;
-                    display: block;
-                }
+.menu ul li a .menu-item {
+    transform: scale(1);
+    transition: 0.5s;
+    display: block;
+}
 
 
 
@@ -79,6 +78,7 @@ nav {
 }
 
 
+
 .textwidth {
     width: 25%;
 }
@@ -96,20 +96,14 @@ footer {
 
 
 
-
-
-
-
 .cover {
     padding: 0 20px;
 }
 
-    .cover .btn-lg {
-        padding: 10px 20px;
-        font-weight: bold;
-    }
-
-
+.cover .btn-lg {
+    padding: 10px 20px;
+    font-weight: bold;
+}
 
 
 a,
@@ -122,9 +116,9 @@ a:hover {
     text-decoration: none;
 }
 
-    .linkStyle:hover {
-        text-decoration: underline;
-    }
+.linkStyle:hover {
+    text-decoration: underline;
+}
 
 .btn-default,
 .btn-default:hover,
@@ -135,9 +129,6 @@ a:hover {
 }
 
 
-
-
-/* Extra markup and styles for table-esque vertical and horizontal centering */
 .site-wrapper {
     display: table;
     width: 100%;
@@ -155,20 +146,17 @@ a:hover {
 }
 
 
-
-/* Padding for spacing */
 .inner {
     padding: 30px;
 }
 
 
 @media (min-width: 768px) {
-    /* Pull out the header and footer */
     .masthead {
         position: fixed;
         top: 0;
     }
-    /* Start the vertical centering  */
+    
     .site-wrapper-inner {
         vertical-align: middle;
     }
@@ -184,15 +172,17 @@ a:hover {
     letter-spacing: 5px;
     cursor: pointer;
     font-weight: bold;
-    filter: drop-shadow(0 0 15px #ffd800) drop-shadow(0 0 50px #ffd800) contrast(3) brightness(2);
+    filter: drop-shadow(0 0 1px #ffd800) drop-shadow(0 0 15px #ffd800) contrast(3) brightness(6);
     transition: .5s;
     text-decoration: none;
 }
 
 .MainButton:hover {
-    color: black;
+    color: darkslategrey;
     background-color: #ffd800;
-    filter: drop-shadow(0 0 20px #ffd800) contrast(2) brightness(2);
+    filter: drop-shadow(0 0 10px #ffd800) contrast(2) brightness(1);
+    font-size: 25px;
+    font-weight: bold;
 }
 
 .MainButton2 {
@@ -204,16 +194,16 @@ a:hover {
     letter-spacing: 5px;
     cursor: pointer;
     font-weight: bold;
-    filter: drop-shadow(0 0 15px forestgreen) drop-shadow(0 0 50px forestgreen) contrast(3) brightness(2);
+    filter: drop-shadow(0 0 15px forestgreen) drop-shadow(0 0 10px forestgreen) contrast(3) brightness(2);
     transition: .5s;
     text-decoration: none;
 }
 
-    .MainButton2:hover {
-        color: #023020;
-        background-color: forestgreen;
-        filter: drop-shadow(0 0 10px forestgreen) contrast(1) brightness(2);
-    }
+.MainButton2:hover {
+    color: #023020;
+    background-color: forestgreen;
+    filter: drop-shadow(0 0 10px forestgreen) contrast(1) brightness(2);
+}
 
 .MainButton3 {
     color: orangered;
@@ -224,17 +214,79 @@ a:hover {
     letter-spacing: 5px;
     cursor: pointer;
     font-weight: bold;
-    filter: drop-shadow(0 0 15px orangered) drop-shadow(0 0 50px orangered) contrast(3) brightness(2);
+    filter: drop-shadow(0 0 15px orangered) drop-shadow(0 0 10px orangered) contrast(3) brightness(2);
     transition: .5s;
     text-decoration: none;
 }
 
-    .MainButton3:hover {
-        color: white;
-        background-color: orangered;
-        filter: drop-shadow(0 0 10px orangered) contrast(2) brightness(1);
-    }
+.MainButton3:hover {
+    color: white;
+    background-color: orangered;
+    filter: drop-shadow(0 0 1px orangered) contrast(1) brightness(1);
+}
 
+.MainButton4 {
+    color: white;
+    border: 3px solid white;
+    border-radius: 15px;
+    padding: 5px 15px;
+    font-size: 15px;
+    letter-spacing: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    filter: drop-shadow(0 0 15px white) drop-shadow(0 0 10px white) contrast(1) brightness(1);
+    transition: .5s;
+    text-decoration: none;
+}
+
+.MainButton4:hover {
+    color: darkslategrey;
+    background-color: white;
+    filter: drop-shadow(0 0 10px white) contrast(1) brightness(1);
+    font-weight: bold;
+}
+
+.MainButton5 {
+    color: white;
+    border: 3px solid white;
+    border-radius: 15px;
+    padding: 5px 15px;
+    font-size: 15px;
+    letter-spacing: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    filter: drop-shadow(0 0 15px white) drop-shadow(0 0 10px white) contrast(1) brightness(1);
+    transition: .5s;
+    text-decoration: none;
+}
+
+.MainButton5:hover {
+    color: darkslategrey;
+    background-color: white;
+    filter: drop-shadow(0 0 10px white) contrast(1) brightness(1);
+    font-weight: bold;
+}
+
+.MainButton6 {
+    color: white;
+    border: 3px solid white;
+    border-radius: 15px;
+    padding: 5px 15px;
+    font-size: 10px;
+    letter-spacing: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    filter: drop-shadow(0 0 15px white) drop-shadow(0 0 10px white) contrast(1) brightness(1);
+    transition: .5s;
+    text-decoration: none;
+}
+
+.MainButton6:hover {
+    color: darkslategrey;
+    background-color: white;
+    filter: drop-shadow(0 0 10px white) contrast(1) brightness(1);
+    font-weight: bold;
+}
 
 .neonText {
     animation: pulsate 1.5s infinite alternate;
@@ -254,3 +306,46 @@ a:hover {
 th {
     color: white;
 }
+
+
+.gg-remove {
+    margin-top:4px;
+    position: absolute;
+    transform: scale(var(--ggs,1));
+    width: 20px;
+    height: 8px;
+    border: 2px solid;
+    border-radius: 20px;
+    color: red;
+}
+
+.gg-remove::before {
+    content: "";
+    position: absolute;
+    width: 7px;
+    height: 2px;
+    background: currentColor;
+    border-radius: 3px;
+    top: 7px;
+    left: 4.5px;
+    border-color:red;
+}
+
+.inner-div {
+    height: 100%;
+    width: 100%;
+    padding: 150px 0;
+}
+
+
+.tb1 {
+    margin-top: 20px;
+    animation: pulsate 1.5s infinite alternate;
+    border-radius: 2rem;
+    box-shadow: 0 0 .2rem #fff, 0 0 .2rem #fff, 0 0 2rem #bc13fe, 0 0 0.8rem #bc13fe, 0 0 2.8rem #bc13fe, inset 0 0 1.3rem #bc13fe;
+}
+
+.th1 {
+    padding-top: 10px;
+}
+

@@ -4,34 +4,57 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
 
-<h4>Customer</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="CustomerId" />
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Password" class="control-label"></label>
-                <input asp-for="Password" class="form-control" />
-                <span asp-validation-for="Password" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+<div class="pt-4 mx-5 text-center px-5">
+    <h1>Edit Personal Information</h1>
+    <h4>Your Customer ID : @Html.DisplayFor(model =>model.CustomerId)</h4>
+    <h4>Your User Name   : @Html.DisplayFor(model =>model.Name)</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="CustomerId" />
+                <input type="hidden" asp-for="Name" />
+                
+                <div class="form-group">
+                    <label asp-for="Password" class="control-label"></label>
+                    <input type="password" asp-for="Password" class="form-control" />
+                    @Html.ValidationMessage("PError", new{ @class="text-danger"})
+                </div>
+                <div class="form-group">
+                    <label asp-for="Address" class="control-label"></label>
+                    <input asp-for="Address" class="form-control" />
+                    @Html.ValidationMessage("AError", new{ @class="text-danger"})
+                </div>
+                <div class="form-group">
+                    <label asp-for="Phone" class="control-label"></label>
+                    <input asp-for="Phone" class="form-control" />
+                    <span asp-validation-for="Phone" class="text-danger"></span>
+                    @Html.ValidationMessage("PhError", new{ @class="text-danger"})
+                </div>
+                <div class="form-group">
+                    <label asp-for="Email" class="control-label"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                    @Html.ValidationMessage("EError", new{ @class="text-danger"})
+                </div>
+                <br />
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-outline-warning" />
+                </div>
+            </form>
+        </div>
     </div>
-</div>
+    <br />
+    <div>
+        <a class="MainButton3" asp-controller="Customers" asp-action="Delete" asp-route-id=@Model.CustomerId onclick="return confirm('All orders and Personal Info will be delete, Are you sure?');">Delete My Account</a>
+    </div>
+    <br />
+    <div>
+        <a asp-controller="Account" asp-action="AccountDetail"onclick="return confirm('If you leave before saving, your changes will be lost.');">Back to Account Detail</a>
+    </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {

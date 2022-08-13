@@ -50,9 +50,9 @@ namespace TVShop.Controllers
                 }
             }
 
-            if (customer.CustomerId == null)
+            if (customer.Name == null)
             {
-                ModelState.AddModelError("IdError", "Please enter the User ID");
+                ModelState.AddModelError("IdError", "Please enter the User Name");
             }
             if (customer.Password == null)
             {
@@ -96,6 +96,7 @@ namespace TVShop.Controllers
             var customerdt = await _context.Customers.Include(a => a.Invoices).FirstOrDefaultAsync(a => a.CustomerId == id);
             var invdb = await _context.Invoices.ToListAsync();
             var productdb = await _context.Televisions.ToListAsync();
+            var manudb = await _context.Manufacturers.ToListAsync();
 
             foreach (var item in customerdt.Invoices)
 
@@ -106,7 +107,11 @@ namespace TVShop.Controllers
                 }
                 foreach (var television in productdb)
                 {
-                    item.Product = television;
+                    item.Product.ProductId = television.ProductId;
+                }
+                foreach (var manu in manudb)
+                {
+                    item.Product.ManufacturerId = manu.ManufacturerId;
                 }
 
             }
