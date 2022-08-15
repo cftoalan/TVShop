@@ -9466,19 +9466,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\kwan6\\.nuget\\packages\\": {}
+    "C:\\Users\\Alan\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kwan6\\source\\repos\\TVShop\\TVShop.csproj",
+      "projectUniqueName": "C:\\Users\\Alan\\Source\\Repos\\SunTVShop\\TVShop.csproj",
       "projectName": "TVShop",
-      "projectPath": "C:\\Users\\kwan6\\source\\repos\\TVShop\\TVShop.csproj",
-      "packagesPath": "C:\\Users\\kwan6\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kwan6\\source\\repos\\TVShop\\obj\\",
+      "projectPath": "C:\\Users\\Alan\\Source\\Repos\\SunTVShop\\TVShop.csproj",
+      "packagesPath": "C:\\Users\\Alan\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Alan\\Source\\Repos\\SunTVShop\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\kwan6\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Alan\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -9486,7 +9486,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "G:\\My Drive\\Algonquin\\WDIA\\Lv3\\C# WP language": {},
+        "C:\\Users\\Alan\\Source\\Repos\\level3\\LocalClassLib": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -9544,7 +9544,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

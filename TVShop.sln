@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32602.215
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TVShop", "TVShop.csproj", "{444ECF42-EA7B-4965-B0C0-EE015A7C8511}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TVShop", "TVShop.csproj", "{444ECF42-EA7B-4965-B0C0-EE015A7C8511}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XUnitTest", "..\XUnitTest\XUnitTest.csproj", "{20D0995E-4B0D-4B41-B140-2E604F0C1AAA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{444ECF42-EA7B-4965-B0C0-EE015A7C8511}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{444ECF42-EA7B-4965-B0C0-EE015A7C8511}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{444ECF42-EA7B-4965-B0C0-EE015A7C8511}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20D0995E-4B0D-4B41-B140-2E604F0C1AAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20D0995E-4B0D-4B41-B140-2E604F0C1AAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20D0995E-4B0D-4B41-B140-2E604F0C1AAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20D0995E-4B0D-4B41-B140-2E604F0C1AAA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
